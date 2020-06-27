@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Switch, Route, Redirect } from 'react-router-dom'
+// 以下作成したコンポーネント
+import Signin from './Signin'
+import Top from './Top'
+import Item from './Item'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Switch>
+        {/* 吉島さん、searchページのルーティングをしてみましょう */}
+        <Route exact path='/signin' component={Signin} />
+        <Route path='/' component={Top} exact />
+        <Route path='/items/:id' component={Item} exact />
+        {/* /item/:id のidは13桁の数字、など決まっていれば正規表現で以下のように書ける */}
+        {/* <Route path='/items/:id([0-9]{13})' component={Item} exact /> */}
+        <Redirect to='/' />
+      </Switch>
+    </>
+  )
 }
 
-export default App;
+export default App
