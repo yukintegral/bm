@@ -1,6 +1,6 @@
 ## コマンド
 
-In the project directory, you can run:
+git cloneできたら、プロジェクトのディレクトリで以下のコマンドが実行できます:
 
 ### `npm run start`
 
