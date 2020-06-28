@@ -17,6 +17,7 @@ git cloneしたらまず、プロジェクトのディレクトリで以下を�
  - トップページ [http://localhost:3000](http://localhost:3000)
  - 商品の詳細ページ [http://localhost:3000/items/123456](http://localhost:3000/items/123456)
  - ログインページ [http://localhost:3000/signin](http://localhost:3000/signin)
+ - 出品ページ [http://localhost:3000/sell](http://localhost:3000/sell)
 
 ### `npm run build`
 
