@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import Dropzone from 'react-dropzone'
 
 // 参考資料
@@ -6,24 +7,30 @@ import Dropzone from 'react-dropzone'
 // https://shiro-goma.hatenablog.com/entry/2016/02/29/034215
 const Sell = () => {
   return (
-    // acceptedFilesに画像が格納される
-    <Dropzone
-      accept='image/jpeg,image/png,image/jpg'
-      onDrop={acceptedFiles => console.log(acceptedFiles)}
-    >
-      {({ getRootProps, getInputProps }) => (
-        <section>
-          <div {...getRootProps()}>
-            <input {...getInputProps()} />
-            <p>
-              ドラッグアンドドロップかここをクリックで画像をアップできます。<br/>
-              今は画像をアップするとconsoleに内容が表示されます。
-            </p>
-            <p>形式: png/jpeg/jpg</p>
-          </div>
-        </section>
-      )}
-    </Dropzone>
+    <>
+      <Helmet>
+        <title>Sell.js</title>
+      </Helmet>
+      {/* acceptedFilesに画像が格納される */}
+      <Dropzone
+        accept='image/jpeg,image/png,image/jpg'
+        onDrop={acceptedFiles => console.log(acceptedFiles)}
+      >
+        {({ getRootProps, getInputProps }) => (
+          <section>
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              <p>
+                ドラッグアンドドロップかここをクリックで画像をアップできます。
+                <br />
+                今は画像をアップするとconsoleに内容が表示されます。
+              </p>
+              <p>形式: png/jpeg/jpg</p>
+            </div>
+          </section>
+        )}
+      </Dropzone>
+    </>
   )
 }
 
