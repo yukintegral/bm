@@ -18,6 +18,9 @@ git cloneしたらまず、プロジェクトのディレクトリで以下を�
  - 商品の詳細ページ [http://localhost:3000/items/123456](http://localhost:3000/items/123456)
  - ログインページ [http://localhost:3000/signin](http://localhost:3000/signin)
  - 出品ページ [http://localhost:3000/sell](http://localhost:3000/sell)
+ - 出品者紹介ページ [http://localhost:3000/u/1234](http://localhost:3000/u/1234)
+ - マイページ [http://localhost:3000/my](http://localhost:3000/my)
+ - 検索結果ページ [http://localhost:3000/search?q=keyboard](http://localhost:3000/search?q=keyboard)
 
 ### `npm run build`
 
