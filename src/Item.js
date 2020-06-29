@@ -7,7 +7,8 @@ const conditions = ['未使用', 'ほぼ未使用', '使用感あり']
 
 const item = {
   id: 2,
-  userId: 'kichis',
+  userId: 1234,
+  userName: 'ippei',
   categoryId: 1,
   itemName: 'あの日の火鍋',
   condition: 1,
@@ -33,7 +34,10 @@ const Item = () => {
       {item.images.map(image => (
         <img src={image} alt='商品の写真' width='200' />
       ))}
-      <p>出品者: {item.userId}</p>
+      <p>
+        出品者:{' '}
+        <a href={`http://localhost:3000/u/${item.userId}`}>{item.userName}</a>
+      </p>
       <p>カテゴリー: {categories[item.categoryId]}</p>
       <p>商品の状態: {conditions[item.condition]}</p>
       <p>￥{item.price.toLocaleString()} </p>
