@@ -6,7 +6,7 @@ const Top = () => {
   return (
     <>
       <Helmet>
-        <title></title>
+        <title>Top</title>
       </Helmet>
       <div>Topページです</div>
     </>
