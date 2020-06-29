@@ -8,10 +8,12 @@ import Sell from './Sell'
 import User from './User'
 import MyPage from './MyPage'
 import Search from './Search'
+import Header from './Header'
 
 const App = () => {
   return (
     <>
+      <Header />
       <Switch>
         <Route exact path='/signin' component={Signin} />
         <Route path='/' component={Top} exact />
