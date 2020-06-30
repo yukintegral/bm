@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 
 const courses = ['LAB', 'DEV']
@@ -41,7 +41,52 @@ const items = [
   },
 ]
 
+const UserSellItems = () => (
+  <>
+    {items.map(item => (
+      <div key={item.id}>
+        <a href={`http://localhost:3000/items/${item.id}`}>
+          <img src={item.images[0]} alt={item.itemName} width='200' />
+          <p>{item.itemName}</p>
+          <p>￥{item.price.toLocaleString()}</p>
+        </a>
+      </div>
+    ))}
+  </>
+)
+
+const selfEsteems = [
+  {
+    user: 'kichis',
+    userPhoto: 'https://2.bp.blogspot.com/-mAPlMWTEu6w/Vf-avVV_qWI/AAAAAAAAyKQ/fFlCoLI8v0g/s140/icon_business_woman06.png',
+    descriptions:
+      'ippeiさんの商品はご自身でされている表記より状態が良くないように思われました。',
+  },
+  {
+    user: 'yamagishi',
+    userPhoto: 'https://2.bp.blogspot.com/-FiaaCK2PiUU/Vf-e-RvXTrI/AAAAAAAAyRw/_a07PGYtWr8/s145/icon_medical_man01.png',
+    descriptions: 'ippeiさんの対応は微妙でした。',
+  },
+]
+
+const SelfEsteem = () => {
+  return (
+    <>
+      <div>他己評価です</div>
+      {selfEsteems.map(selfEsteem => (
+        <div>
+          <p>{selfEsteem.user}</p>
+          <img src={selfEsteem.userPhoto} alt="ユーザーの写真です"/>
+          <p>{selfEsteem.descriptions}</p>
+        </div>
+      ))}
+    </>
+  )
+}
+
 const User = () => {
+  const [a, setA] = useState(true)
+
   return (
     <>
       <Helmet>
@@ -64,16 +109,11 @@ const User = () => {
       <div>
         <a href={`https://github.com/${user.githubId}`}>github</a>
       </div>
-      <div>この出品者の商品</div>
-      {items.map(item => (
-        <div key={item.id}>
-          <a href={`http://localhost:3000/items/${item.id}`}>
-          <img src={item.images[0]} alt={item.itemName} width='200' />
-          <p>{item.itemName}</p>
-          <p>￥{item.price.toLocaleString()}</p>
-          </a>
-        </div>
-      ))}
+      <div>　</div>
+      <button onClick={() => setA(true)}>この出品者の商品</button>
+      <button onClick={() => setA(false)}>この出品者の他己評価</button>
+      <div>　</div>
+      {a ? <UserSellItems /> : <SelfEsteem />}
     </>
   )
 }
