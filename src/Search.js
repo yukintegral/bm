@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router-dom'
 import queryString from 'query-string'
+import { Link } from 'react-router-dom'
 
 const items = [
   {
@@ -56,11 +57,11 @@ const Search = () => {
       <div>検索結果</div>
       {items.map(item => (
         <div key={item.id}>
-          <a href={`http://localhost:3000/items/${item.id}`}>
-          <img src={item.images[0]} alt={item.itemName} width='200' />
-          <p>{item.itemName}</p>
-          <p>￥{item.price.toLocaleString()}</p>
-          </a>
+          <Link to={`/items/${item.id}`}>
+            <img src={item.images[0]} alt={item.itemName} width='200' />
+            <p>{item.itemName}</p>
+            <p>￥{item.price.toLocaleString()}</p>
+          </Link>
         </div>
       ))}
     </>

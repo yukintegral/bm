@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { Link } from 'react-router-dom'
 
 const categories = ['技術書とか', 'PC用品', '洗剤', 'その他']
 
@@ -35,8 +36,7 @@ const Item = () => {
         <img src={image} alt='商品の写真' width='200' />
       ))}
       <p>
-        出品者:{' '}
-        <a href={`http://localhost:3000/u/${item.userId}`}>{item.userName}</a>
+        出品者: <Link to={`/u/${item.userId}`}>{item.userName}</Link>
       </p>
       <p>カテゴリー: {categories[item.categoryId]}</p>
       <p>商品の状態: {conditions[item.condition]}</p>
