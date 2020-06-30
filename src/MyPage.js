@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
+import { Link } from 'react-router-dom'
 
 const items = [
   {
@@ -31,11 +32,11 @@ const Trading = () => {
       <div>取引中の商品一覧が表示されます</div>
       {items.map(item => (
         <div key={item.id}>
-          <a href={`http://localhost:3000/items/${item.id}`}>
+          <Link to={`/items/${item.id}`}>
             <img src={item.images[0]} alt={item.itemName} width='200' />
             <p>{item.itemName}</p>
             <p>￥{item.price.toLocaleString()}</p>
-          </a>
+          </Link>
         </div>
       ))}
     </>
@@ -48,11 +49,11 @@ const Traded = () => {
       <div>過去の取引の商品一覧が表示されます</div>
       {items2.map(item => (
         <div key={item.id}>
-          <a href={`http://localhost:3000/items/${item.id}`}>
+          <Link to={`/items/${item.id}`}>
             <img src={item.images[0]} alt={item.itemName} width='200' />
             <p>{item.itemName}</p>
             <p>￥{item.price.toLocaleString()}</p>
-          </a>
+          </Link>
         </div>
       ))}
     </>
@@ -66,11 +67,11 @@ const Favorite = () => {
       <div>いいねした商品です</div>
       {items2.map(item => (
         <div key={item.id}>
-          <a href={`http://localhost:3000/items/${item.id}`}>
+          <Link to={`/items/${item.id}`}>
             <img src={item.images[0]} alt={item.itemName} width='200' />
             <p>{item.itemName}</p>
             <p>￥{item.price.toLocaleString()}</p>
-          </a>
+          </Link>
         </div>
       ))}
     </>
