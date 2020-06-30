@@ -114,6 +114,8 @@ const User = () => {
       <button onClick={() => setA(false)}>この出品者の他己評価</button>
       <div>　</div>
       {a ? <UserSellItems /> : <SelfEsteem />}
+      <div>この出品者の他己評価をする</div>
+      <textarea name="" id="" cols="30" rows="3"></textarea>
     </>
   )
 }
