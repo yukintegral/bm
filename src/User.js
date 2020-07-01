@@ -1,25 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect ,useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const courses = ['LAB', 'DEV']
 
-const user = {
-  id: 1234,
-  displayName: 'ippei',
-  course: 0,
-  graduatingClass: 8,
-  userPhoto:
-    'https://avatars2.githubusercontent.com/u/36134103?s=460&u=77193745c8c24b80d994c3407efb1be92697cfd5&v=4',
-  selfIntroduction:
-    'ご覧いただきありがとうございます。お互いが気持ちの良いお取引をできるよう心がけています。よろしくお願いします。',
-  twitterId: 'realDonaldTrump',
-  facebookId: 'kazuhira4126',
-  githubId: 'kazuhi-ra',
-  plant1: 2,
-  plant2: 0,
-  plant3: 3,
-}
+// const user = {
+//   id: 1234,
+//   displayName: 'ippei',
+//   course: 0,
+//   graduatingClass: 8,
+//   userPhoto:
+//     'https://avatars2.githubusercontent.com/u/36134103?s=460&u=77193745c8c24b80d994c3407efb1be92697cfd5&v=4',
+//   selfIntroduction:
+//     'ご覧いただきありがとうございます。お互いが気持ちの良いお取引をできるよう心がけています。よろしくお願いします。',
+//   twitterId: 'realDonaldTrump',
+//   facebookId: 'kazuhira4126',
+//   githubId: 'kazuhi-ra',
+//   plant1: 2,
+//   plant2: 0,
+//   plant3: 3,
+// }
 
 const posts = [
   {
@@ -91,30 +92,44 @@ const SelfEsteem = () => {
   )
 }
 
-const User = () => {
+const User = ({ match }) => {
   const [a, setA] = useState(true)
+  const [user, setUser] = useState({
+    user_name: ''
+  })
+
+  const paramsId = match.params.id
+  const pathName = `users/${paramsId}`
+  const fetchURL = `http://localhost:3001/${pathName}`
+
+  useEffect(() => {
+    axios.get(fetchURL).then(response => {
+      setUser(response.data)
+      console.log(response.data)
+    })
+  }, [fetchURL])
 
   return (
     <>
       <Helmet>
-        <title>闇市 - {user.displayName}</title>
+        <title>闇市 - {user.user_name}</title>
       </Helmet>
       <div>ユーザーの紹介ページです</div>
 
-      <img src={user.userPhoto} alt='ユーザーの写真です' width='100' />
-      <p>{user.displayName}</p>
+      <img src={user.avatar} alt='ユーザーの写真です' width='100' />
+      <p>{user.user_name}</p>
       <p>
-        {courses[user.course]}コース {user.graduatingClass}期
+        {courses[user.course]}コース {user.class}期
       </p>
-      <p>{user.selfIntroduction}</p>
+      <p>{user.self_introduction}</p>
       <div>
-        <a href={`http://twitter.com/${user.twitterId}`}>twitter</a>
+        <a href={`http://twitter.com/${user.twitter_id}`}>twitter</a>
       </div>
       <div>
-        <a href={`https://www.facebook.com/${user.facebookId}`}>facebook</a>
+        <a href={`https://www.facebook.com/${user.facebook_id}`}>facebook</a>
       </div>
       <div>
-        <a href={`https://github.com/${user.githubId}`}>github</a>
+        <a href={`https://github.com/${user.github_id}`}>github</a>
       </div>
       <div>　</div>
       <button onClick={() => setA(true)}>この出品者の商品</button>

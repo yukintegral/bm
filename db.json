@@ -2,7 +2,7 @@
   "posts": [
     {
       "id": 1,
-      "user_id": 4,
+      "user_id": 1,
       "user_name": "ippei",
       "message": "商品説明です。校舎で火鍋を食べましょう。校舎で火鍋を食べましょう。校舎で火鍋を食べましょう。校舎で火鍋を食べましょう。校舎で火鍋を食べましょう。校舎で火鍋を食べましょう。校舎で火鍋を食べましょう。",
       "category_id": 1,
@@ -49,6 +49,52 @@
       ],
       "favorite": false,
       "sall": false
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "user_name": "ippei",
+      "course": 0,
+      "class": 9,
+      "avatar": "https://avatars2.githubusercontent.com/u/36134103?s=460&u=77193745c8c24b80d994c3407efb1be92697cfd5&v=4",
+      "self_introduction": "これは挨拶です。",
+      "twitter_id": "realDonaldTrump",
+      "facebook-id": "kazuhira4126",
+      "github-id": "kazuhi-ra"
+    },
+    {
+      "id": 2,
+      "user_name": "daichi1992",
+      "course": 0,
+      "class": 9,
+      "avatar": "https://avatars2.githubusercontent.com/u/64568758?s=460&v=4",
+      "self_introduction": "これは挨拶です。",
+      "twitter_id": "realDonaldTrump",
+      "facebook-id": "kazuhira4126",
+      "github-id": "kazuhi-ra"
+    },
+    {
+      "id": 3,
+      "user_name": "kichis",
+      "course": 0,
+      "class": 9,
+      "avatar": "https://avatars3.githubusercontent.com/u/64632997?s=460&v=4",
+      "self_introduction": "これは挨拶です。",
+      "twitter_id": "realDonaldTrump",
+      "facebook-id": "kazuhira4126",
+      "github-id": "kazuhi-ra"
+    },
+    {
+      "id": 4,
+      "user_name": "oguri",
+      "course": 0,
+      "class": 9,
+      "avatar": "https://avatars2.githubusercontent.com/u/36134103?s=460&u=77193745c8c24b80d994c3407efb1be92697cfd5&v=4",
+      "self_introduction": "これは挨拶です。",
+      "twitter_id": "realDonaldTrump",
+      "facebook-id": "kazuhira4126",
+      "github-id": "kazuhi-ra"
     }
   ]
 }
