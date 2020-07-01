@@ -6,8 +6,8 @@ import Dnd from './Dnd'
 // フォームの内容をuseStateでゲットしてpostObjに格納し、APIでPOSTする予定
 const postObj = {
   images: ['', '', ''],
-  itemName: '',
-  itemDescription: '',
+  postName: '',
+  postDescription: '',
   categoryId: 1,
   condition: 1,
   price: 30000,
