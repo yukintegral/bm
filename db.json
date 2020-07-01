@@ -1,8 +1,9 @@
 {
-  "items": [
+  "posts": [
     {
       "id": 1,
-      "user_id": "ippei",
+      "user_id": 4,
+      "user_name": "ippei",
       "message": "商品説明です。校舎で火鍋を食べましょう。校舎で火鍋を食べましょう。校舎で火鍋を食べましょう。校舎で火鍋を食べましょう。校舎で火鍋を食べましょう。校舎で火鍋を食べましょう。校舎で火鍋を食べましょう。",
       "category_id": 1,
       "post_name": "あの日の火鍋",
@@ -18,7 +19,8 @@
     },
     {
       "id": 2,
-      "user_id": "kichis",
+      "user_id": 3,
+      "user_name": "kichis",
       "message": "コートです。もう捨てました。",
       "category_id": 0,
       "post_name": "コート",
