@@ -15,7 +15,6 @@ const Search = () => {
 
   useEffect(() => {
     axios.get(fetchURL).then(response => {
-      console.log(response.data)
       setPosts(response.data)
     })
   }, [fetchURL])
