@@ -15,7 +15,6 @@ const Item = ({ match }) => {
   const paramsId = match.params.id
   const pathName = `posts/${paramsId}`
   const fetchURL = `http://localhost:3001/${pathName}`
-  console.log(fetchURL)
 
   useEffect(() => {
     axios.get(fetchURL).then(response => {

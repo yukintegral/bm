@@ -1,38 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router-dom'
 import queryString from 'query-string'
 import { Link } from 'react-router-dom'
-
-const items = [
-  {
-    id: 1,
-    price: 30000,
-    itemName: 'あの日の火鍋',
-    images: [
-      'https://cdn-ak.f.st-hatena.com/images/fotolife/k/kazuhi_ra/20191228/20191228232047.jpg',
-      'https://cdn-ak.f.st-hatena.com/images/fotolife/k/kazuhi_ra/20191228/20191228231928.jpg',
-    ],
-  },
-  {
-    id: 2,
-    price: 3000000,
-    itemName: 'あの日の火鍋',
-    images: [
-      'https://cdn-ak.f.st-hatena.com/images/fotolife/k/kazuhi_ra/20191228/20191228232047.jpg',
-      'https://cdn-ak.f.st-hatena.com/images/fotolife/k/kazuhi_ra/20191228/20191228231928.jpg',
-    ],
-  },
-]
+import axios from 'axios'
 
 const Search = () => {
   const location = useLocation()
+  const [posts, setItems] = useState([])
   const [inputValue, setInputValue] = useState(
     queryString.parse(location.search).q
   )
 
+  const pathName = `posts${location.search}`
+  const fetchURL = `http://localhost:3001/${pathName}`
+
+  useEffect(() => {
+    axios.get(fetchURL).then(response => {
+      console.log(response.data)
+      setItems(response.data)
+    })
+  }, [fetchURL])
+
   const handleInputValue = event => {
-    console.log(event.target.value)
     setInputValue(event.target.value)
   }
 
@@ -55,12 +45,12 @@ const Search = () => {
       </div>
       <div>　</div>
       <div>検索結果</div>
-      {items.map(item => (
-        <div key={item.id}>
-          <Link to={`/items/${item.id}`}>
-            <img src={item.images[0]} alt={item.itemName} width='200' />
-            <p>{item.itemName}</p>
-            <p>￥{item.price.toLocaleString()}</p>
+      {posts.map(post => (
+        <div key={post.id}>
+          <Link to={`/posts/${post.id}`}>
+            <img src={post.images[0]} alt={post.post_name} width='200' />
+            <p>{post.post_name}</p>
+            <p>￥{post.price.toLocaleString()}</p>
           </Link>
         </div>
       ))}
