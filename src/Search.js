@@ -8,9 +8,6 @@ import axios from 'axios'
 const Search = () => {
   const location = useLocation()
   const [posts, setPosts] = useState([])
-  const [inputValue, setInputValue] = useState(
-    queryString.parse(location.search).q
-  )
 
   const pathName = `posts${location.search}`
   const fetchURL = `http://localhost:3001/${pathName}`
@@ -22,22 +19,18 @@ const Search = () => {
     })
   }, [fetchURL])
 
-  const handleInputValue = event => {
-    setInputValue(event.target.value)
-  }
-
   return (
     <>
       <Helmet>
-        <title>Search</title>
+        <title>{queryString.parse(location.search).q || ''} の検索結果</title>
       </Helmet>
       <div>検索結果が表示されるページです。</div>
+      <div>　</div>
       <div>クエリはこちら: {location.search}</div>
       <div>ワードだけ取り出すと: {queryString.parse(location.search).q}</div>
       <div>
         これをAPIに渡して検索結果をゲットします。複数条件あるときはどうしたらいいのかは考えられていません
       </div>
-      <input value={inputValue} onChange={handleInputValue} />
       <div>　</div>
       <div>
         <button>並び替え</button>
