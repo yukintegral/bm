@@ -22,7 +22,7 @@ const Search = () => {
   return (
     <>
       <Helmet>
-        <title>Search</title>
+        <title>{queryString.parse(location.search).q || ''} の検索結果</title>
       </Helmet>
       <div>検索結果が表示されるページです。</div>
       <div>　</div>
