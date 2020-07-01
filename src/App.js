@@ -22,8 +22,8 @@ const App = () => {
         <Route path='/u/:id' component={User} exact />
         <Route path='/my' component={MyPage} exact />
         <Route path='/search' component={Search} exact />
-        {/* /item/:id のidは13桁の数字、など決まっていれば正規表現で以下のように書ける */}
-        {/* <Route path='/items/:id([0-9]{13})' component={Post} exact /> */}
+        {/* /post/:id のidは13桁の数字、など決まっていれば正規表現で以下のように書ける */}
+        {/* <Route path='/posts/:id([0-9]{13})' component={Post} exact /> */}
         <Redirect to='/' />
       </Switch>
     </>
