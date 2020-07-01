@@ -32,6 +32,23 @@
       ],
       "favorite": false,
       "sall": false
+    },
+    {
+      "id": 3,
+      "user_id": 1,
+      "user_name": "ippei",
+      "message": "3分もやし焼きそばとは、3分でできるもやし入り焼きそばのことです。",
+      "category_id": 0,
+      "post_name": "3分もやし焼きそば",
+      "post_status_id": 0,
+      "createdAt": "2020-07-02 00:00:00",
+      "price": 30,
+      "images": [
+        "https://cdn-ak.f.st-hatena.com/images/fotolife/k/kazuhi_ra/20200120/20200120195832.jpg",
+        "https://cdn-ak.f.st-hatena.com/images/fotolife/k/kazuhi_ra/20200120/20200120195840.jpg"
+      ],
+      "favorite": false,
+      "sall": false
     }
   ]
 }
