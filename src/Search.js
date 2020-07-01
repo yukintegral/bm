@@ -8,6 +8,7 @@ import axios from 'axios'
 const Search = () => {
   const location = useLocation()
   const [posts, setPosts] = useState([])
+  const [sort, setSort] = useState(false)
 
   const pathName = `posts${location.search}`
   const fetchURL = `http://localhost:3001/${pathName}`
@@ -18,6 +19,16 @@ const Search = () => {
       setPosts(response.data)
     })
   }, [fetchURL])
+
+  const postsToShow = sort
+    ? posts.slice().sort((a, b) => {
+        if (a.price < b.price) {
+          return -1
+        } else {
+          return 1
+        }
+      })
+    : posts
 
   return (
     <>
@@ -33,12 +44,12 @@ const Search = () => {
       </div>
       <div>　</div>
       <div>
-        <button>並び替え</button>
+        <button onClick={() => setSort(prev => !prev)}>{sort ? '安い順です' : '新しい順です'}</button>
         <button>カテゴリを絞る</button>
       </div>
       <div>　</div>
       <div>検索結果</div>
-      {posts.map(post => (
+      {postsToShow.map(post => (
         <div key={post.id}>
           <Link to={`/posts/${post.id}`}>
             <img src={post.images[0]} alt={post.post_name} width='200' />
