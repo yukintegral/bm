@@ -21,6 +21,8 @@ const Top = () => {
       </Helmet>
       <div>Topページです</div>
       <div>　</div>
+      <Link to="/sell"><button>出品する</button></Link>
+      <div>　</div>
       <div>商品一覧</div>
       <div>　</div>
       {posts.map(post => (

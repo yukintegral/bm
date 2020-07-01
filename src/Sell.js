@@ -17,7 +17,7 @@ const Sell = () => {
   return (
     <>
       <Helmet>
-        <title>Sell.js</title>
+        <title>出品 - 闇市</title>
       </Helmet>
       <Dnd />
       <div>商品名</div>
