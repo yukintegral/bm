@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "user_id": "ippei",
+      "message": "商品説明です。校舎で火鍋を食べましょう。校舎で火鍋を食べましょう。校舎で火鍋を食べましょう。校舎で火鍋を食べましょう。校舎で火鍋を食べましょう。校舎で火鍋を食べましょう。校舎で火鍋を食べましょう。",
+      "category_id": 1,
+      "post_name": "あの日の火鍋",
+      "post_status_id": 1,
+      "createdAt": "2020-07-01 00:00:00",
+      "price": 3000000000,
+      "images": [
+        "https://cdn-ak.f.st-hatena.com/images/fotolife/k/kazuhi_ra/20191228/20191228232047.jpg",
+        "https://cdn-ak.f.st-hatena.com/images/fotolife/k/kazuhi_ra/20191228/20191228231928.jpg"
+      ],
+      "favorite": true,
+      "sall": true
+    },
+    {
+      "id": 2,
+      "user_id": "kichis",
+      "message": "コートです。捨てました。",
+      "category_id": 2,
+      "post_name": "コート",
+      "post_status_id": 1,
+      "createdAt": "2020-07-01 10:00:00",
+      "price": 3000000000,
+      "images": [
+        "https://cdn-ak.f.st-hatena.com/images/fotolife/k/kazuhi_ra/20200330/20200330101402.jpg"
+      ],
+      "favorite": false,
+      "sall": false
+    }
+  ]
+}
