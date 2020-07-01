@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 
-const items = [
+const posts = [
   {
     id: 1,
     price: 30000,
-    itemName: '取引中の商品です',
+    postName: '取引中の商品です',
     images: [
       'https://cdn-ak.f.st-hatena.com/images/fotolife/k/kazuhi_ra/20191228/20191228232047.jpg',
       'https://cdn-ak.f.st-hatena.com/images/fotolife/k/kazuhi_ra/20191228/20191228231928.jpg',
@@ -14,11 +14,11 @@ const items = [
   },
 ]
 
-const items2 = [
+const post2 = [
   {
     id: 2,
     price: 3000000,
-    itemName: '過去の取引の商品です',
+    postName: '過去の取引の商品です',
     images: [
       'https://cdn-ak.f.st-hatena.com/images/fotolife/k/kazuhi_ra/20191228/20191228231928.jpg',
       'https://cdn-ak.f.st-hatena.com/images/fotolife/k/kazuhi_ra/20191228/20191228232047.jpg',
@@ -30,12 +30,12 @@ const Trading = () => {
   return (
     <>
       <div>取引中の商品一覧が表示されます</div>
-      {items.map(item => (
-        <div key={item.id}>
-          <Link to={`/items/${item.id}`}>
-            <img src={item.images[0]} alt={item.itemName} width='200' />
-            <p>{item.itemName}</p>
-            <p>￥{item.price.toLocaleString()}</p>
+      {posts.map(post => (
+        <div key={post.id}>
+          <Link to={`/posts/${post.id}`}>
+            <img src={post.images[0]} alt={post.postName} width='200' />
+            <p>{post.postName}</p>
+            <p>￥{post.price.toLocaleString()}</p>
           </Link>
         </div>
       ))}
@@ -47,12 +47,12 @@ const Traded = () => {
   return (
     <>
       <div>過去の取引の商品一覧が表示されます</div>
-      {items2.map(item => (
-        <div key={item.id}>
-          <Link to={`/items/${item.id}`}>
-            <img src={item.images[0]} alt={item.itemName} width='200' />
-            <p>{item.itemName}</p>
-            <p>￥{item.price.toLocaleString()}</p>
+      {post2.map(post => (
+        <div key={post.id}>
+          <Link to={`/posts/${post.id}`}>
+            <img src={post.images[0]} alt={post.postName} width='200' />
+            <p>{post.postName}</p>
+            <p>￥{post.price.toLocaleString()}</p>
           </Link>
         </div>
       ))}
@@ -65,12 +65,12 @@ const Favorite = () => {
     <>
       <div>いいねした商品の一覧が表示されます</div>
       <div>いいねした商品です</div>
-      {items2.map(item => (
-        <div key={item.id}>
-          <Link to={`/items/${item.id}`}>
-            <img src={item.images[0]} alt={item.itemName} width='200' />
-            <p>{item.itemName}</p>
-            <p>￥{item.price.toLocaleString()}</p>
+      {post2.map(post => (
+        <div key={post.id}>
+          <Link to={`/posts/${post.id}`}>
+            <img src={post.images[0]} alt={post.postName} width='200' />
+            <p>{post.postName}</p>
+            <p>￥{post.price.toLocaleString()}</p>
           </Link>
         </div>
       ))}

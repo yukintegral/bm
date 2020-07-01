@@ -4,7 +4,7 @@ import Dropzone from 'react-dropzone'
 import compressImage from './utils/compressImage'
 
 const Dnd = () => {
-  const [itemImages, setItemImages] = useState([])
+  const [postImages, setPostImages] = useState([])
   let i = 0
 
   const onDrop = useCallback(
@@ -21,7 +21,7 @@ const Dnd = () => {
         reader.readAsDataURL(file)
         reader.onload = e => {
           compressImage(e.target.result).then(result => {
-            setItemImages(prevState => [...prevState, result])
+            setPostImages(prevState => [...prevState, result])
           })
           i++
         }
@@ -52,7 +52,7 @@ const Dnd = () => {
           </section>
         )}
       </Dropzone>
-      {itemImages.map((image, i) => (
+      {postImages.map((image, i) => (
         <img key={i} src={image} alt='アップロードした写真' width='200' />
       ))}
     </>

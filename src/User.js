@@ -21,11 +21,11 @@ const user = {
   plant3: 3,
 }
 
-const items = [
+const posts = [
   {
     id: 1,
     price: 30000,
-    itemName: 'あの日の火鍋',
+    postName: 'あの日の火鍋',
     images: [
       'https://cdn-ak.f.st-hatena.com/images/fotolife/k/kazuhi_ra/20191228/20191228232047.jpg',
       'https://cdn-ak.f.st-hatena.com/images/fotolife/k/kazuhi_ra/20191228/20191228231928.jpg',
@@ -34,7 +34,7 @@ const items = [
   {
     id: 2,
     price: 3000000,
-    itemName: 'あの日の火鍋',
+    postName: 'あの日の火鍋',
     images: [
       'https://cdn-ak.f.st-hatena.com/images/fotolife/k/kazuhi_ra/20191228/20191228232047.jpg',
       'https://cdn-ak.f.st-hatena.com/images/fotolife/k/kazuhi_ra/20191228/20191228231928.jpg',
@@ -42,14 +42,14 @@ const items = [
   },
 ]
 
-const UserSellItems = () => (
+const UserSellPosts = () => (
   <>
-    {items.map(item => (
-      <div key={item.id}>
-        <Link to={`/items/${item.id}`}>
-          <img src={item.images[0]} alt={item.itemName} width='200' />
-          <p>{item.itemName}</p>
-          <p>￥{item.price.toLocaleString()}</p>
+    {posts.map(post => (
+      <div key={post.id}>
+        <Link to={`/posts/${post.id}`}>
+          <img src={post.images[0]} alt={post.postName} width='200' />
+          <p>{post.postName}</p>
+          <p>￥{post.price.toLocaleString()}</p>
         </Link>
       </div>
     ))}
@@ -120,7 +120,7 @@ const User = () => {
       <button onClick={() => setA(true)}>この出品者の商品</button>
       <button onClick={() => setA(false)}>この出品者の他己評価</button>
       <div>　</div>
-      {a ? <UserSellItems /> : <SelfEsteem />}
+      {a ? <UserSellPosts /> : <SelfEsteem />}
       <div>この出品者の他己評価をする</div>
       <textarea name='' id='' cols='30' rows='3'></textarea>
     </>

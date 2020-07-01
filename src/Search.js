@@ -7,7 +7,7 @@ import axios from 'axios'
 
 const Search = () => {
   const location = useLocation()
-  const [posts, setItems] = useState([])
+  const [posts, setPosts] = useState([])
   const [inputValue, setInputValue] = useState(
     queryString.parse(location.search).q
   )
@@ -18,7 +18,7 @@ const Search = () => {
   useEffect(() => {
     axios.get(fetchURL).then(response => {
       console.log(response.data)
-      setItems(response.data)
+      setPosts(response.data)
     })
   }, [fetchURL])
 
