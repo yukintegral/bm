@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use Auth;
 use Validate;
 use DB;
-use App\Plant_red;
+use App\Information;
     
     //=======================================================================
-    class PlantResController extends Controller
+    class InformatiosController extends Controller
     {
         /**
          * Display a listing of the resource.
@@ -22,11 +22,11 @@ use App\Plant_red;
             $perPage = 25;
     
             if (!empty($keyword)) {
-                $plant_re = Plant_red::where("id","LIKE","%$keyword%")->orWhere("user_id", "LIKE", "%$keyword%")->orWhere("plant_red", "LIKE", "%$keyword%")->paginate($perPage);
+                $informatio = Information::where("id","LIKE","%$keyword%")->orWhere("content", "LIKE", "%$keyword%")->paginate($perPage);
             } else {
-                    $plant_re = Plant_red::paginate($perPage);              
+                    $informatio = Information::paginate($perPage);              
             }          
-            return view("plant_re.index", compact("plant_re"));
+            return view("informatio.index", compact("informatio"));
         }
     
         /**
@@ -36,7 +36,7 @@ use App\Plant_red;
          */
         public function create()
         {
-            return view("plant_re.create");
+            return view("informatio.create");
         }
     
         /**
@@ -49,15 +49,14 @@ use App\Plant_red;
         public function store(Request $request)
         {
             $this->validate($request, [
-				"user_id" => "required|integer", //integer('user_id')
-				"plant_red" => "nullable|integer", //integer('plant_red')->nullable()
+				"content" => "required", //string('content')
 
             ]);
             $requestData = $request->all();
             
-            Plant_red::create($requestData);
+            Information::create($requestData);
     
-            return redirect("plant_re")->with("flash_message", "plant_re added!");
+            return redirect("informatio")->with("flash_message", "informatio added!");
         }
     
         /**
@@ -69,8 +68,8 @@ use App\Plant_red;
          */
         public function show($id)
         {
-            $plant_re = Plant_red::findOrFail($id);
-            return view("plant_re.show", compact("plant_re"));
+            $informatio = Information::findOrFail($id);
+            return view("informatio.show", compact("informatio"));
         }
     
         /**
@@ -82,9 +81,9 @@ use App\Plant_red;
          */
         public function edit($id)
         {
-            $plant_re = Plant_red::findOrFail($id);
+            $informatio = Information::findOrFail($id);
     
-            return view("plant_re.edit", compact("plant_re"));
+            return view("informatio.edit", compact("informatio"));
         }
     
         /**
@@ -98,16 +97,15 @@ use App\Plant_red;
         public function update(Request $request, $id)
         {
             $this->validate($request, [
-				"user_id" => "required|integer", //integer('user_id')
-				"plant_red" => "nullable|integer", //integer('plant_red')->nullable()
+				"content" => "required", //string('content')
 
             ]);
             $requestData = $request->all();
             
-            $plant_re = Plant_red::findOrFail($id);
-            $plant_re->update($requestData);
+            $informatio = Information::findOrFail($id);
+            $informatio->update($requestData);
     
-            return redirect("plant_re")->with("flash_message", "plant_re updated!");
+            return redirect("informatio")->with("flash_message", "informatio updated!");
         }
     
         /**
@@ -119,9 +117,9 @@ use App\Plant_red;
          */
         public function destroy($id)
         {
-            Plant_red::destroy($id);
+            Information::destroy($id);
     
-            return redirect("plant_re")->with("flash_message", "plant_re deleted!");
+            return redirect("informatio")->with("flash_message", "informatio deleted!");
         }
     }
     //=======================================================================
